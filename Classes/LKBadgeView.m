@@ -68,7 +68,7 @@
     self.shadowOffset = CGSizeMake(1.0, 1.0);
     self.shadowBlur = 2.0;
     self.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    self.font = [UIFont boldSystemFontOfSize:LK_BADGE_VIEW_FONT_SIZE];
+    self.font = [UIFont systemFontOfSize:LK_BADGE_VIEW_FONT_SIZE];
     self.textOffset = CGSizeMake(0.0, 0.0);
 }
 
@@ -269,10 +269,10 @@
         if (self.shadowOfText) {
             CGContextSaveGState(context);
             CGContextSetShadowWithColor(context, self.shadowOffset, self.shadowBlur, self.shadowColor.CGColor);
-            [self.displayinText drawAtPoint:p withAttributes:@{NSFontAttributeName:self.font}];
+            [self.displayinText drawAtPoint:p withAttributes:@{NSFontAttributeName:self.font,NSForegroundColorAttributeName:self.textColor}];
             CGContextRestoreGState(context);
         } else {
-            [self.displayinText drawAtPoint:p withAttributes:@{NSFontAttributeName:self.font}];
+            [self.displayinText drawAtPoint:p withAttributes:@{NSFontAttributeName:self.font,NSForegroundColorAttributeName:self.textColor}];
         }
     }
     
