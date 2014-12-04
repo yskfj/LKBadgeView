@@ -42,11 +42,11 @@ typedef enum {
 
 
 // Constants
-#define LK_BADGE_VIEW_STANDARD_HEIGHT       20.0
+#define LK_BADGE_VIEW_STANDARD_HEIGHT       18.0
 #define LK_BADGE_VIEW_LARGE_HEIGHT          30.0
-#define LK_BADGE_VIEw_STANDARD_WIDTH        30.0
-#define LK_BADGE_VIEw_MINIMUM_WIDTH         22.0
-#define LK_BADGE_VIEW_FONT_SIZE             16.0
+#define LK_BADGE_VIEw_STANDARD_WIDTH        28.0
+#define LK_BADGE_VIEw_MINIMUM_WIDTH         20.0
+#define LK_BADGE_VIEW_FONT_SIZE             14.0
 
 
 @interface LKBadgeView : UIView
