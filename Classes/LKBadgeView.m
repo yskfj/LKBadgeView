@@ -21,7 +21,6 @@
 //
 
 #import "LKBadgeView.h"
-#import "NSString+DeprecatedCategory.h"
 
 #define LK_BADGE_VIEW_MINUM_WIDTH           24.0
 #define LK_BADGE_VIEW_HORIZONTAL_PADDING    6.0
@@ -117,16 +116,18 @@
 
 - (void)_adjustBadgeFrameWith
 {
-    CGSize suffixSize = [LK_BADGE_VIEW_TRUNCATED_SUFFIX sizeWithFontEx:self.font];
+    if (self.font == nil) return;
+    
+    CGSize suffixSize = [LK_BADGE_VIEW_TRUNCATED_SUFFIX sizeWithAttributes:@{NSFontAttributeName:self.font}];
 
     CGFloat paddinWidth = LK_BADGE_VIEW_HORIZONTAL_PADDING*2;
-    CGSize size = [self.displayinText sizeWithFontEx:self.font];
+    CGSize size = [self.displayinText sizeWithAttributes:@{NSFontAttributeName:self.font}];
     badgeFrame_.size.width = size.width + paddinWidth;
     
     if (badgeFrame_.size.width > self.bounds.size.width) {
 
         while (1) {
-            size = [self.displayinText sizeWithFontEx:self.font];
+            size = [self.displayinText sizeWithAttributes:@{NSFontAttributeName:self.font}];
             badgeFrame_.size.width = size.width + paddinWidth;
             if (badgeFrame_.size.width+suffixSize.width > self.bounds.size.width) {
                 if ([self.displayinText length] > 1) {
@@ -261,7 +262,7 @@
     // draw text
     if (self.text != nil || [self.text length] > 0) {
         [self.textColor setFill];
-        CGSize size = [self.displayinText sizeWithFontEx:self.font];
+        CGSize size = [self.displayinText sizeWithAttributes:@{NSFontAttributeName:self.font}];
         CGPoint p = CGPointMake(bp.x + (badgeFrame_.size.width - size.width)/2.0 + textOffset_.width,
                                 bp.y + (badgeFrame_.size.height - size.height)/2.0 + textOffset_.height);
 
