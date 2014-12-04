@@ -22,8 +22,8 @@
 
 #import "LKBadgeView.h"
 
-#define LK_BADGE_VIEW_MINUM_WIDTH           22.0
-#define LK_BADGE_VIEW_HORIZONTAL_PADDING    6.0
+#define LK_BADGE_VIEW_MINUM_WIDTH           20.0
+#define LK_BADGE_VIEW_HORIZONTAL_PADDING    5.0
 #define LK_BADGE_VIEW_TRUNCATED_SUFFIX      @"..."
 
 @interface LKBadgeView()
@@ -144,8 +144,8 @@
         }
     }
     if (self.widthMode == LKBadgeViewWidthModeStandard) {
-        if (badgeFrame_.size.width < LK_BADGE_VIEw_STANDARD_WIDTH) {
-            badgeFrame_.size.width = LK_BADGE_VIEw_STANDARD_WIDTH;
+        if (badgeFrame_.size.width < LK_BADGE_VIEW_STANDARD_WIDTH) {
+            badgeFrame_.size.width = LK_BADGE_VIEW_STANDARD_WIDTH;
         }
     }
 }
